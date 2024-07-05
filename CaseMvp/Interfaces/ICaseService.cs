@@ -10,7 +10,7 @@ namespace CaseMvp.Interfaces
         Task Delete(int id);
         Task<CaseDto> GetById(int id);
         Task<IEnumerable<SkinDto>> GetSkinsByCaseIdAsync(int caseId);
-        Task AddSkinsToCaseAsync(int caseId, int skinIds);
+        Task AddSkinsToCaseAsync(int caseId, int skinId);
         Task<SkinDto> DrawSkinAsync(int caseId);
         Task<SkinDto> GetSkinByIdAsync(int skinId);
     }

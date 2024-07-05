@@ -68,9 +68,9 @@ namespace CaseMvp.Services
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task AddSkinsToCaseAsync(int caseId, int skinIds)
+        public async Task AddSkinsToCaseAsync(int caseId, int skinId)
         {
-           var skin = await _dbContext.Skins.FirstOrDefaultAsync(c => c.Id == skinIds);
+           var skin = await _dbContext.Skins.FirstOrDefaultAsync(c => c.Id == skinId);
 
             if (skin == null)
             {
@@ -80,7 +80,7 @@ namespace CaseMvp.Services
             var caseAndSkin = new CaseAndSkin
             {
                 CaseId = caseId,
-                SkinId = skinIds
+                SkinId = skinId
             };
 
             await _dbContext.CaseAndSkins.AddAsync(caseAndSkin);

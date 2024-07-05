@@ -58,7 +58,7 @@ namespace CaseMvp.Controllers
                 return View();
             }
             await _caseService.Create(caseDto);
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexAdmin");
         }
         [HttpGet("Case/Edit/{id}")]
         public async Task<IActionResult> Edit([FromRoute] int id)
@@ -81,7 +81,7 @@ namespace CaseMvp.Controllers
                 return NotFound();
             }
             await _caseService.Update(id, caseDto);
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexAdmin");
         }
         [HttpGet]
         public IActionResult Delete()
@@ -97,7 +97,7 @@ namespace CaseMvp.Controllers
                 return NotFound();
             }
             await _caseService.Delete(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexAdmin");
         }
 
         [HttpGet("Case/ShowAllSkins/{caseId}")]
@@ -109,7 +109,7 @@ namespace CaseMvp.Controllers
         }
 
         [HttpPost("Case/ShowAllSkins/{caseId}")]
-        public async Task<IActionResult> ShowAllSkins([FromRoute] int caseId, [FromBody] int skinId)
+        public async Task<IActionResult> ShowAllSkins([FromRoute] int caseId, [FromForm] int skinId)
         {
             await _caseService.AddSkinsToCaseAsync(caseId, skinId);
             return RedirectToAction("ShowAllSkins");
