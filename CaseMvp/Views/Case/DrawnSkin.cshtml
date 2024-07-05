@@ -1,0 +1,30 @@
+﻿@model CaseMvp.Dtos.SkinDto
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drawn Skin</title>
+</head>
+<body>
+    <h1>Drawn Skin</h1>
+
+    <div>
+        <h4>@Model.Name</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">Fload</dt>
+            <dd class="col-sm-10">@Model.Fload</dd>
+
+            <dt class="col-sm-2">Price</dt>
+            <dd class="col-sm-10">@Model.Price</dd>
+
+            <dt class="col-sm-2">Quality</dt>
+            <dd class="col-sm-10">@Model.Quality</dd>
+        </dl>
+    </div>
+
+    <div>
+        <a asp-action="Details" asp-route-id="@ViewBag.CaseId" class="btn btn-primary">Back to Case</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CaseMvp.Dtos.SkinDto>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case Details</title>
+</head>
+<body>
+    <h1>Skins in Case</h1>
+
+    <form asp-action="DrawSkin" method="post" style="display:inline;">
+        <input type="hidden" name="caseId" value="@ViewBag.CaseId" />
+        <button type="submit" class="btn btn-primary">Draw Skin</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Fload</th>
+                <th>Price</th>
+                <th>Quality</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var skin in Model)
+            {
+                <tr>
+                    <td>@skin.Id</td>
+                    <td>@skin.Name</td>
+                    <td>@skin.Fload</td>
+                    <td>@skin.Price</td>
+                    <td>@skin.Quality</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
+</html>
